@@ -124,10 +124,10 @@ class SampleGenerator():
             items.append(int(row.itemId))
             ratings.append(float(row.rating))
 
-        for i in range(num_negatives):
-            users.append(int(row.userId))
-            items.append(int(row.negative_samples[i]))
-            ratings.append(float(0))      
+            for i in range(num_negatives):
+                users.append(int(row.userId))
+                items.append(int(row.negative_samples[i]))
+                ratings.append(float(0))      
 
         dataset = UserItemRatingDataset(user_tensor=torch.LongTensor(users),
                                    item_tensor=torch.LongTensor(items),
